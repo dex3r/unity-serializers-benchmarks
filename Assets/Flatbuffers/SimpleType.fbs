@@ -1,0 +1,9 @@
+namespace RootNamespace;
+
+table SimpleType 
+{
+  intValue:int32;
+  stringValue:string;
+}
+
+root_type SimpleType;
