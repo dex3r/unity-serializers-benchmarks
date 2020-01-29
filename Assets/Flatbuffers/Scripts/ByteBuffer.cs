@@ -81,7 +81,16 @@ namespace FlatBuffers
     {
         private byte[] _buffer;
 
+        public ByteArrayAllocator()
+        {
+        }
+
         public ByteArrayAllocator(byte[] buffer)
+        {
+            Reuse(buffer);
+        }
+
+        public void Reuse(byte[] buffer)
         {
             _buffer = buffer;
             InitBuffer();
@@ -126,7 +135,16 @@ namespace FlatBuffers
         private ByteBufferAllocator _buffer;
         private int _pos;  // Must track start of the buffer.
 
+        public ByteBuffer()
+        {
+        }
+
         public ByteBuffer(ByteBufferAllocator allocator, int position)
+        {
+            Reuse(allocator, position);
+        }
+
+        public void Reuse(ByteBufferAllocator allocator, int position)
         {
             _buffer = allocator;
             _pos = position;
